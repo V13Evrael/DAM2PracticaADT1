@@ -7,10 +7,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ListaDeLaCompra {
+public class ListaDeLaCompra implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private ArrayList<ArticuloAComprar> lista = new ArrayList<ArticuloAComprar>();
 
@@ -58,12 +60,12 @@ public class ListaDeLaCompra {
 
 		try {
 			
-			File listaDataExp = new File("./datosListas/" + this.getNombreLista() + ".data");
+			File listaDataExp = new File(".\\datosListas\\" + this.getNombreLista() + ".data");
 			FileOutputStream fos = new FileOutputStream(listaDataExp);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.close();
-			
+		
 			oos.writeObject(this);
+			oos.close();
 			
 		} catch (FileNotFoundException e) {
 
@@ -75,12 +77,14 @@ public class ListaDeLaCompra {
 		}
 	}
 	
-	public static ListaDeLaCompra importaListaDeLaCompra(String rutaAbsoluta) {
+	public static ListaDeLaCompra importaListaDeLaCompra(String nombreLista) {
+		
+		String ruta = ".\\datosListas\\";
 		
 		ListaDeLaCompra resultado = new ListaDeLaCompra();
 		
 		try {
-			File listaDataImp = new File(rutaAbsoluta);
+			File listaDataImp = new File(ruta + nombreLista);
 			FileInputStream fis = new FileInputStream(listaDataImp);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			resultado = (ListaDeLaCompra) ois.readObject();

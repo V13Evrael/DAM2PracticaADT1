@@ -1,6 +1,8 @@
 package es.studium.Modelo;
 
-public class ArticuloAComprar {
+import java.io.Serializable;
+
+public class ArticuloAComprar implements Serializable {
 
 	private String descripcion;
 	private String unidad;

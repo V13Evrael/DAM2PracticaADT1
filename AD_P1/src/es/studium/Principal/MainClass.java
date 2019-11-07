@@ -30,7 +30,5 @@ public class MainClass {
 			
 			System.out.println(art.getDescripcion() + " Cantidad: " + art.getCantidad() + " Unidad: " + art.getUnidad());
 		}
-		
 	}
-
 }

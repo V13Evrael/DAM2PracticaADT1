@@ -10,42 +10,84 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ListaDeLaCompra.
+ */
 public class ListaDeLaCompra implements Serializable {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The nombre. */
 	private String nombre;
+	
+	/** The lista. */
 	private ArrayList<ArticuloAComprar> lista = new ArrayList<ArticuloAComprar>();
 
+	/**
+	 * Instantiates a new lista de la compra.
+	 */
 	public ListaDeLaCompra() {
 
 		nombre = "";
 	}
 
+	/**
+	 * Instantiates a new lista de la compra.
+	 *
+	 * @param nombre the nombre
+	 */
 	public ListaDeLaCompra(String nombre) {
 
 		this.nombre = nombre;
 	}
 
+	/**
+	 * Gets the nombre lista.
+	 *
+	 * @return the nombre lista
+	 */
 	public String getNombreLista() {
 
 		return this.nombre;
 	}
 
+	/**
+	 * Sets the nombre lista.
+	 *
+	 * @param nuevoNombre the new nombre lista
+	 */
 	public void setNombreLista(String nuevoNombre) {
 
 		this.nombre = nuevoNombre;
 	}
 
+	/**
+	 * Agregar producto A comprar.
+	 *
+	 * @param articulo the articulo
+	 */
 	public void agregarProductoAComprar(ArticuloAComprar articulo) {
 
 		this.lista.add(articulo);
 	}
 
+	/**
+	 * Gets the articulos.
+	 *
+	 * @return the articulos
+	 */
 	public ArrayList<ArticuloAComprar> getArticulos() {
 
 		return this.lista;
 	}
 
+	/**
+	 * Eliminar articulo.
+	 *
+	 * @param desc the desc
+	 */
 	public void eliminarArticulo(String desc) {
 
 		for (ArticuloAComprar art : this.getArticulos()) {
@@ -56,6 +98,9 @@ public class ListaDeLaCompra implements Serializable {
 		}
 	}
 
+	/**
+	 * Exporta lista de la compra.
+	 */
 	public void exportaListaDeLaCompra() {
 
 		try {
@@ -77,6 +122,12 @@ public class ListaDeLaCompra implements Serializable {
 		}
 	}
 	
+	/**
+	 * Importa lista de la compra.
+	 *
+	 * @param nombreLista the nombre lista
+	 * @return the lista de la compra
+	 */
 	public static ListaDeLaCompra importaListaDeLaCompra(String nombreLista) {
 		
 		String ruta = ".\\datosListas\\";

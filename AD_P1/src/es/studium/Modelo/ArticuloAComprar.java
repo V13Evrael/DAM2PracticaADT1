@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 /**
  * 
+ * <p>Esta clase representa un artículo que se puede adquirir en un comercio. Su utilidad principal consiste en ser almacenados en listas de la compra. 
+ * </p>
+ * <p>Implementa la interfaz {@link java.io.Serializable Serializable} ya que será necesario guardarlo en un archivo .dat mediante métodos de la clase {@link ListaDeLaCompra}, que guardarán la misma y todo su contenido.
+ * </p>
  * @author José Manuel Platero
  *
  */
@@ -54,7 +58,7 @@ public class ArticuloAComprar implements Serializable {
 
 	/**
 	 * Este método devuelve un String que será la <b>descripción</b> del objeto.
-	 * @return String {@link ArticuloAComprar#descripcion}
+	 * @return String {@link #descripcion}
 	 */
 	public String getDescripcion() {
 		return descripcion;
@@ -62,7 +66,7 @@ public class ArticuloAComprar implements Serializable {
 
 	/**
 	 * Establece una nueva <b>descripción</b> para el objeto.
-	 * @param descripcion {@link ArticuloAComprar#descripcion}
+	 * @param descripcion {@link #descripcion}
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
@@ -70,27 +74,33 @@ public class ArticuloAComprar implements Serializable {
 	
 	/**
 	 * Este método devuelve un String que será la <b>unidad</b> del objeto.
-	 * @return {@link ArticuloAComprar#unidad}
+	 * @return String {@link #unidad}
 	 */
 	public String getUnidad() {
 		return unidad;
 	}
 	
-
+	/**
+	 * Establece una nueva <b>unidad</b> para el objeto.
+	 * @param unidad {@link #unidad}
+	 */
 	public void setUnidad(String unidad) {
 		this.unidad = unidad;
 	}
 
 	/**
 	 * Este método devuelve un Integer que será la <b>cantidad</b> del objeto.
-	 * @return {@link ArticuloAComprar#cantidad}
+	 * @return Integer {@link #cantidad}
 	 */
 	public Integer getCantidad() {
 		return cantidad;
 	}
 
+	/**
+	 * Establece una nueva <b>cantidad</b> para el objeto.
+	 * @param cantidad {@link #descripcion}
+	 */
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-	
 }

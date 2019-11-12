@@ -12,21 +12,30 @@ import java.util.ArrayList;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class ListaDeLaCompra.
+ * <p>La clase ListaDeLaCompra representa una lista de la compra concreta que tendrá en su interior
+ *  una serie de artículos (elementos de la clase {@link ArticuloAComprar}) 
+ *  especificados dentro de un {@link java.util.ArrayList ArrayList} 
+ *  representado a su vez por el atributo {@link ListaDeLaCompra#lista lista}.
+ * </p>
+ * <p>Implementa la interfaz {@link java.io.Serializable Serializable} ya que será necesaria la permanencia de las listas mediante un archivo .dat que guardará el propio objeto.
+ * 
+ * @author José Manuel Platero
  */
 public class ListaDeLaCompra implements Serializable {
 
-	/** The Constant serialVersionUID. */
+	/** La constante serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
-	/** The nombre. */
+	/** Este atributo representa el nombre de la lista. Este atributo se usará para dar nombre al fichero .dat creado para mantener un objeto concreto de la lista. */
 	private String nombre;
 	
-	/** The lista. */
+	/** Este atributo representa la propia lista mediante un {@link java.io.ArrayList ArrayList} que contendrá todos los artículos de la clase {@link ArticuloAComprar} que contiene la lista. */
 	private ArrayList<ArticuloAComprar> lista = new ArrayList<ArticuloAComprar>();
 
 	/**
-	 * Instantiates a new lista de la compra.
+	 * Constructor de la clase ListaDeLaCompra.<br/>
+	 * Instancia un objeto de la clase dándole un nombre que será la cadena vacía.
+	 * Para poder hacer uso de la persistencia mediante los correspondientes métodos, será necesario indicar un {@link #nombre}.
 	 */
 	public ListaDeLaCompra() {
 
@@ -36,17 +45,16 @@ public class ListaDeLaCompra implements Serializable {
 	/**
 	 * Instantiates a new lista de la compra.
 	 *
-	 * @param nombre the nombre
+	 * @param nom guardará un String que será el atributo <b>nombre</b> del objeto instanciado. 
 	 */
-	public ListaDeLaCompra(String nombre) {
+	public ListaDeLaCompra(String nom) {
 
-		this.nombre = nombre;
+		this.nombre = nom;
 	}
 
 	/**
-	 * Gets the nombre lista.
-	 *
-	 * @return the nombre lista
+	 *Este método devuelve un String que será <b>nombre</b> del objeto.
+	 * @return String {@link #nombre}
 	 */
 	public String getNombreLista() {
 
@@ -54,9 +62,9 @@ public class ListaDeLaCompra implements Serializable {
 	}
 
 	/**
-	 * Sets the nombre lista.
-	 *
-	 * @param nuevoNombre the new nombre lista
+	 * <p>Establece un nuevo <b>nombre</b> para el objeto.</p>
+	 * <p>Hay que tener en cuenta, que si se cambia el nombre mediante este método, el archivo .dat creado correspondiente a esta lista no cambiará.</p>
+	 * @param nuevoNombre {@link #nombre}
 	 */
 	public void setNombreLista(String nuevoNombre) {
 
@@ -64,9 +72,9 @@ public class ListaDeLaCompra implements Serializable {
 	}
 
 	/**
-	 * Agregar producto A comprar.
+	 * <p>Este método agrega un artículo al atributo {@link #lista} del objeto sobre el que se aplica.</p>
 	 *
-	 * @param articulo the articulo
+	 * @param articulo  Este será el objeto de la clase {@link ArticuloAComprar} que se agregará.
 	 */
 	public void agregarProductoAComprar(ArticuloAComprar articulo) {
 
@@ -74,9 +82,8 @@ public class ListaDeLaCompra implements Serializable {
 	}
 
 	/**
-	 * Gets the articulos.
-	 *
-	 * @return the articulos
+	 *Este método devuelve un String que será el atributo <b>lista</b> del objeto.
+	 * @return ArrayList {@link #lista}
 	 */
 	public ArrayList<ArticuloAComprar> getArticulos() {
 
@@ -84,9 +91,10 @@ public class ListaDeLaCompra implements Serializable {
 	}
 
 	/**
-	 * Eliminar articulo.
-	 *
-	 * @param desc the desc
+	 * <p>Elimina la primera concurrencia de un {@link ArticuloAComprar} cuya {@link ArticuloAComprar#descripcion descripción} coincida con la de un ArticuloAComprar dentro del atributo {@link #lista} del objeto sobre el que se aplica.</p>
+	 * <p>Si la lista no contiene ningún ArticuloAComprar que cumpla la condición, este método no efectúa ningún cambio.<br/>
+	 * Sin embargo, si la lista posee más de un ArticuloAComprar en su interior que cumpla la condición sólo eliminará el primero, dejando el resto dentro de la lista.</p>
+	 * @param desc String que será la descripción que se busca en los artículos de la lista.
 	 */
 	public void eliminarArticulo(String desc) {
 
@@ -99,7 +107,10 @@ public class ListaDeLaCompra implements Serializable {
 	}
 
 	/**
-	 * Exporta lista de la compra.
+	 * <p>Este método exporta la lista de la compra y todo su contenido en un archivo <i>nombre.dat</i> donde este nombre hace referencia al atributo {@link #nombre} de la lista.<br/>
+	 * La ubicación específica del archivo será una carpeta llamada datosListas en el directorio padre. Si dicha carpeta no existe, la crea y a continuación guarda dicho archivo.</p> 
+	 * <p>Puede lanzar una excepción de tipo {@link java.io.FileNotFoundException FileNotFoundException} que imprimirá por consola un breve mensaje de error.<br/>
+	 * También puede lanzar una excepción más génerica de tipo {@link java.io.IOException IOException} si se produce un error en la entrada o salida de los datos. </p> 
 	 */
 	public void exportaListaDeLaCompra() {
 
@@ -123,10 +134,19 @@ public class ListaDeLaCompra implements Serializable {
 	}
 	
 	/**
-	 * Importa lista de la compra.
+	 * <p>Este método devuelve un objeto {@link ListaDeLaCompra} importado desde un archivo .dat que se encontrará en la carpeta datosListas.<br/>
+	 * Nótese que si no se ha usado el método {@link ListaDeLaCompra#exportaListaDeLaCompra() exportaListaDeLaCompra()} puede que la carpeta datosListas no esté creada y este método lance una excepción y muestre un error por pantalla.
+	 * </p>
+	 * <p>Este método puede lanzar varias excepciones que devolverán un mensaje de error por consola. Las excepciones que pueden lanzarse son las siguientes:
+	 * <ul>
+	 * 	<li>Una excepción {@link java.io.FileNotFoundException FileNotFoundException} que ocurrirá si el archivo no se encuentra o la carpeta datosListas no ha sido creada.</li>
+	 *  <li>Una excepción {@link java.io IOException IOExcetion} </li>
+	 *  <li>Una excepción {@link java.lang.ClassNotFoundException ClassNotFoundException}</li>
+	 * </ul>
+	 * </p>
 	 *
-	 * @param nombreLista the nombre lista
-	 * @return the lista de la compra
+	 * @param nombreLista el nombre del fichero (debe añadir la extensión).
+	 * @return {@link ListaDeLaCompra} 
 	 */
 	public static ListaDeLaCompra importaListaDeLaCompra(String nombreLista) {
 		

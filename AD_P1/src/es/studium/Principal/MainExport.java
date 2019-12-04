@@ -3,7 +3,7 @@ package es.studium.Principal;
 import es.studium.Modelo.ArticuloAComprar;
 import es.studium.Modelo.ListaDeLaCompra;
 
-public class MainClass {
+public class MainExport {
 
 	public static void main(String[] args) {
 
@@ -82,20 +82,5 @@ public class MainClass {
 		//Probamos el método exportaListaDeLaCompra();	
 		lst1.exportaListaDeLaCompra();
 		lst2.exportaListaDeLaCompra();
-		  
-		
-		
-		 /*//A continuación creamos una lista en base al elemento exportado:
-		 * ListaDeLaCompra lstExportada =
-		 * ListaDeLaCompra.importaListaDeLaCompra("ListaPrueba");
-		 * 
-		 * lstExportada.eliminarArticulo("Articulo 1");
-		 * 
-		 * //Y aquí mostramos que efectivamente se crearon los artículos: for
-		 * (ArticuloAComprar art : lstExportada.getArticulos()) {
-		 * 
-		 * System.out.println(art.getDescripcion() + " Cantidad: " + art.getCantidad() +
-		 * " Unidad: " + art.getUnidad()); }
-		 */
 	}
 }

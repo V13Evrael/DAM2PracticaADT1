@@ -79,13 +79,13 @@ public class MainClass {
 			
 			System.out.println();
 			
+		//Probamos el método exportaListaDeLaCompra();	
+		lst1.exportaListaDeLaCompra();
+		lst2.exportaListaDeLaCompra();
+		  
 		
-			
-		/*
-		 * //Exportamos la lista. lst.exportaListaDeLaCompra();
-		 * 
-		 * 
-		 * //A continuación creamos una lista en base al elemento exportado:
+		
+		 /*//A continuación creamos una lista en base al elemento exportado:
 		 * ListaDeLaCompra lstExportada =
 		 * ListaDeLaCompra.importaListaDeLaCompra("ListaPrueba");
 		 * 

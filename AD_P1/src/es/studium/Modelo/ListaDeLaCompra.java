@@ -116,12 +116,14 @@ public class ListaDeLaCompra implements Serializable {
 
 		try {
 			
-			File listaDataExp = new File(".\\datosListas\\" + this.getNombreLista() + ".data");
+			File listaDataExp = new File(".\\datosListas\\" + this.getNombreLista() + ".dat");
 			FileOutputStream fos = new FileOutputStream(listaDataExp);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
 			oos.writeObject(this);
+			
 			oos.close();
+			fos.close();
 			
 		} catch (FileNotFoundException e) {
 
@@ -152,14 +154,15 @@ public class ListaDeLaCompra implements Serializable {
 		
 		String ruta = ".\\datosListas\\";
 		
-		ListaDeLaCompra resultado = new ListaDeLaCompra();
+		ListaDeLaCompra resultado = new ListaDeLaCompra(nombreLista);
 		
 		try {
-			File listaDataImp = new File(ruta + nombreLista);
+			File listaDataImp = new File(ruta + nombreLista + ".dat");
 			FileInputStream fis = new FileInputStream(listaDataImp);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			resultado = (ListaDeLaCompra) ois.readObject();
 			ois.close();
+			fis.close();
 			
 		} catch (FileNotFoundException e) {
 		

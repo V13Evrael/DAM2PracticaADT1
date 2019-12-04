@@ -24,9 +24,6 @@ public class MainImport {
 			for (ArticuloAComprar art : lstImportada2.getArticulos()) {
 
 				System.out.println(art.getDescripcion() + " Cantidad: " + art.getCantidad() + " Unidad: " + art.getUnidad());
-			}
-		
-		
+			}		
 	}
-
 }

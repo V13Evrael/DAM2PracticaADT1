@@ -33,7 +33,7 @@ public class ListaDeLaCompra implements Serializable {
 	private ArrayList<ArticuloAComprar> lista = new ArrayList<ArticuloAComprar>();
 
 	/**
-	 * Constructor de la clase ListaDeLaCompra.<br/>
+	 * Constructor de la clase ListaDeLaCompra.<br>
 	 * Instancia un objeto de la clase dándole un nombre que será la cadena vacía.
 	 * Para poder hacer uso de la persistencia mediante los correspondientes métodos, será necesario indicar un {@link #nombre}.
 	 */
@@ -92,7 +92,7 @@ public class ListaDeLaCompra implements Serializable {
 
 	/**
 	 * <p>Elimina la primera concurrencia de un {@link ArticuloAComprar} cuya {@link ArticuloAComprar#descripcion descripción} coincida con la de un ArticuloAComprar dentro del atributo {@link #lista} del objeto sobre el que se aplica.</p>
-	 * <p>Si la lista no contiene ningún ArticuloAComprar que cumpla la condición, este método no efectúa ningún cambio.<br/>
+	 * <p>Si la lista no contiene ningún ArticuloAComprar que cumpla la condición, este método no efectúa ningún cambio.<br>
 	 * Sin embargo, si la lista posee más de un ArticuloAComprar en su interior que cumpla la condición sólo eliminará el primero, dejando el resto dentro de la lista.</p>
 	 * @param desc String que será la descripción que se busca en los artículos de la lista.
 	 */
@@ -107,9 +107,9 @@ public class ListaDeLaCompra implements Serializable {
 	}
 
 	/**
-	 * <p>Este método exporta la lista de la compra y todo su contenido en un archivo <i>nombre.dat</i> donde este nombre hace referencia al atributo {@link #nombre} de la lista.<br/>
+	 * <p>Este método exporta la lista de la compra y todo su contenido en un archivo <i>nombre.dat</i> donde este nombre hace referencia al atributo {@link #nombre} de la lista.<br>
 	 * La ubicación específica del archivo será una carpeta llamada datosListas en el directorio padre. Si dicha carpeta no existe, la crea y a continuación guarda dicho archivo.</p> 
-	 * <p>Puede lanzar una excepción de tipo {@link java.io.FileNotFoundException FileNotFoundException} que imprimirá por consola un breve mensaje de error.<br/>
+	 * <p>Puede lanzar una excepción de tipo {@link java.io.FileNotFoundException FileNotFoundException} que imprimirá por consola un breve mensaje de error.<br>
 	 * También puede lanzar una excepción más génerica de tipo {@link java.io.IOException IOException} si se produce un error en la entrada o salida de los datos. </p> 
 	 */
 	public void exportaListaDeLaCompra() {
@@ -136,7 +136,7 @@ public class ListaDeLaCompra implements Serializable {
 	}
 	
 	/**
-	 * <p>Este método devuelve un objeto {@link ListaDeLaCompra} importado desde un archivo .dat que se encontrará en la carpeta datosListas.<br/>
+	 * <p>Este método devuelve un objeto {@link ListaDeLaCompra} importado desde un archivo .dat que se encontrará en la carpeta datosListas.<br>
 	 * Nótese que si no se ha usado el método {@link ListaDeLaCompra#exportaListaDeLaCompra() exportaListaDeLaCompra()} puede que la carpeta datosListas no esté creada y este método lance una excepción y muestre un error por pantalla.
 	 * </p>
 	 * <p>Este método puede lanzar varias excepciones que devolverán un mensaje de error por consola. Las excepciones que pueden lanzarse son las siguientes:
@@ -145,7 +145,7 @@ public class ListaDeLaCompra implements Serializable {
 	 *  <li>Una excepción {@link java.io IOException IOExcetion} </li>
 	 *  <li>Una excepción {@link java.lang.ClassNotFoundException ClassNotFoundException}</li>
 	 * </ul>
-	 * </p>
+	 * 
 	 *
 	 * @param nombreLista el nombre del fichero (debe añadir la extensión).
 	 * @return {@link ListaDeLaCompra} 
